@@ -4,8 +4,8 @@ import {
   ArrowUturnRightIcon,
 } from '@heroicons/react/24/solid';
 
-import data from '../data';
-const { name, githubLink, examples } = data;
+import data from '../dataExport';
+const { name, githubLink, examples } = data();
 
 export const App: FC = () => (
   <main className="bg-white text-black antialiased dark:bg-gray-900 dark:text-white">
