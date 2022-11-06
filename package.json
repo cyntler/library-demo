@@ -8,10 +8,11 @@
   },
   "author": "Damian Cyntler",
   "license": "MIT",
-  "bin": "./dist/cli.js",
+  "bin": "./dist/index.js",
   "scripts": {
     "start": "nodemon ./src/cli.ts",
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc",
+    "self-cli": "SELF_INIT=true node ./dist/index.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
