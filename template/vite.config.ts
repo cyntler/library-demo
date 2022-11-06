@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { createHtmlPlugin } from 'vite-plugin-html';
 
-import data from './data';
+import data from './dataExport';
 
 export default defineConfig({
   plugins: [
@@ -10,7 +10,7 @@ export default defineConfig({
     createHtmlPlugin({
       minify: true,
       inject: {
-        data,
+        data: data(),
       },
     }),
   ],

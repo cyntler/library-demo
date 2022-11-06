@@ -7,5 +7,5 @@
     "esModuleInterop": true,
     "jsx": "react-jsx"
   },
-  "include": ["vite.config.ts", "data.tsx"]
+  "include": ["vite.config.ts", "dataExport.tsx", "dataTemplate.tsx"]
 }
