@@ -1,7 +1,15 @@
 {
   "name": "@cyntler/library-demo",
   "version": "0.0.0",
-  "description": "Builder of a demo application for presenting the library to the public.",
+  "description": "Builder of a React.js demo application with Tailwind template for presenting the library to the public.",
+  "keywords": [
+    "template",
+    "builder",
+    "react-app",
+    "react-template",
+    "tailwind",
+    "library-demo"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cyntler/library-demo.git"
