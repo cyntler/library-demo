@@ -4,7 +4,8 @@
     "module": "Node16",
     "lib": ["ES2021.String"],
     "moduleResolution": "Node",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "composite": true
   },
   "include": ["./src"]
 }
