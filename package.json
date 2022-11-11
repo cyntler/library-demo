@@ -20,7 +20,7 @@
   "scripts": {
     "start": "nodemon ./src/cli.ts",
     "build": "rimraf ./dist && tsc",
-    "self-cli": "SELF_INIT=true node ./dist/index.js"
+    "self-cli": "SELF_RUN=true node ./dist/index.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
