@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "composite": true
+    "composite": true,
+    "paths": {
+      "*": ["./__template/node_modules/@types/*"]
+    },
+    "typeRoots": ["./__template/node_modules/@types"],
+    "moduleResolution": "Node"
   },
   "include": ["demoData.tsx"]
 }
