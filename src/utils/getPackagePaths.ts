@@ -1,11 +1,11 @@
 import { join } from 'path';
 import { getConsumerProjectPaths } from './getConsumerProjectPaths';
-import { getIsSelfInit } from './getIsSelfInit';
+import { isSelfRun } from './isSelfRun';
 
 const { projectRootPath } = getConsumerProjectPaths();
 
 export const getPackagePaths = () => {
-  const packageRootPath = getIsSelfInit()
+  const packageRootPath = isSelfRun()
     ? projectRootPath
     : join(projectRootPath, 'node_modules', '@cyntler/library-demo');
   const packageTemplatePath = join(packageRootPath, 'template');

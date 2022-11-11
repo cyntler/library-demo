@@ -1,16 +1,26 @@
 import { execSync } from 'child_process';
-import { existsSync, mkdirSync, readdirSync, rmSync } from 'fs';
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'fs';
 import { copySync, moveSync } from 'fs-extra';
 import { join } from 'path';
 import {
+  consumerDemoScripts,
   PACKAGE_FILES_TO_ROOT_MOVE_DIR,
   PROJECT_DEMO_DIR,
   PROJECT_DEMO_TEMPLATE_DIR,
 } from '../models';
 import { getConsumerProjectPaths } from '../utils/getConsumerProjectPaths';
-import { getIsSelfInit } from '../utils/getIsSelfInit';
 import { getPackagePaths } from '../utils/getPackagePaths';
+import { isSelfRun } from '../utils/isSelfRun';
 import { logError, logProgress, logSuccess } from '../utils/logger';
+import { addScriptsToPackageJson } from '../utils/packageJsonManipulate';
+import { replaceDataExport } from '../utils/replaceDataExport';
 
 const {
   packageRootPath,
@@ -22,29 +32,26 @@ const { projectRootPath, projectDemoPath, projectDemoTemplatePath } =
   getConsumerProjectPaths();
 
 export const initialize = () => {
-  /* When the user ran CLI with no option - general initialization/reinitialization flow. */
   if (existsSync(projectRootPath) && existsSync(packageRootPath)) {
     const isFirstInitialization = !existsSync(projectDemoPath);
     logProgress(`Demo ${!isFirstInitialization ? 're' : ''}initialization...`);
 
-    /* Create demo root directory when is the first initialization. */
     if (isFirstInitialization) {
       mkdirSync(projectDemoPath);
     }
 
-    /* Create or recreate directory with template in the consumer demo project. */
     rmSync(projectDemoTemplatePath, { recursive: true, force: true });
-    if (!getIsSelfInit()) {
+    if (!isSelfRun()) {
       rmSync(packageTemplateDistPath, { recursive: true, force: true });
       rmSync(packageTemplateNodeModulesPath, { recursive: true, force: true });
     }
 
-    /* Copy all template files to the consumer demo project and move necessary files to the demo root. */
     copySync(packageTemplatePath, projectDemoTemplatePath);
     const filesToRootCopyPath = join(
       projectDemoTemplatePath,
       PACKAGE_FILES_TO_ROOT_MOVE_DIR,
     );
+
     const filesToRootCopy = readdirSync(filesToRootCopyPath);
     filesToRootCopy.forEach((file) => {
       const projectDemoFilePath = join(projectDemoPath, file);
@@ -57,11 +64,15 @@ export const initialize = () => {
         join(projectDemoFilePath),
       );
     });
+
+    replaceDataExport();
+
     rmSync(filesToRootCopyPath, { recursive: true, force: true });
+    if (!isSelfRun()) {
+      rmSync(packageTemplatePath, { recursive: true, force: true });
+    }
 
-    /*  */
-
-    /* Install demo modules */
+    addScriptsToPackageJson(consumerDemoScripts);
     execSync(`cd ${PROJECT_DEMO_DIR}/${PROJECT_DEMO_TEMPLATE_DIR} && npm i`);
 
     logSuccess(

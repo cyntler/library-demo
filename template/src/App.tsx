@@ -37,19 +37,21 @@ export const App: FC = () => (
           </div>
         </header>
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
-          {examples.map(({ label, description, element }) => (
-            <div key={label} className="space-y-2 pt-6 pb-8 md:space-y-5">
-              <h2 className="font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl sm:leading-10 md:text-4xl md:leading-14">
-                {label}
-              </h2>
-              {description && (
-                <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-                  {description}
-                </p>
-              )}
-              {element}
-            </div>
-          ))}
+          {examples &&
+            Boolean(examples.length) &&
+            examples.map(({ label, description, element }) => (
+              <div key={label} className="space-y-2 pt-6 pb-8 md:space-y-5">
+                <h2 className="font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl sm:leading-10 md:text-4xl md:leading-14">
+                  {label}
+                </h2>
+                {description && (
+                  <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+                    {description}
+                  </p>
+                )}
+                {element}
+              </div>
+            ))}
         </div>
       </div>
     </div>
