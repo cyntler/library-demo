@@ -21,6 +21,7 @@ import { isSelfRun } from '../utils/isSelfRun';
 import { logError, logProgress, logSuccess } from '../utils/logger';
 import { addScriptsToPackageJson } from '../utils/packageJsonManipulate';
 import { replaceDataExport } from '../utils/replaceDataExport';
+import { addReferenceToTsConfig } from '../utils/tsConfigManipulate';
 
 const {
   packageRootPath,
@@ -73,6 +74,7 @@ export const initialize = () => {
     }
 
     addScriptsToPackageJson(consumerDemoScripts);
+    addReferenceToTsConfig();
     execSync(`cd ${PROJECT_DEMO_DIR}/${PROJECT_DEMO_TEMPLATE_DIR} && npm i`);
 
     logSuccess(

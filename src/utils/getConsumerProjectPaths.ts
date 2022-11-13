@@ -11,11 +11,17 @@ export const getConsumerProjectPaths = () => {
     projectDemoPath,
     PROJECT_DEMO_TEMPLATE_DIR,
   );
+  const projectDemoTemplateTsConfigPath = join(
+    projectDemoPath,
+    PROJECT_DEMO_TEMPLATE_DIR,
+    'tsconfig.json',
+  );
 
   return {
     projectRootPath,
     projectPackageJsonPath,
     projectDemoPath,
     projectDemoTemplatePath,
+    projectDemoTemplateTsConfigPath,
   };
 };
