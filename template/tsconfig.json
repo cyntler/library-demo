@@ -9,6 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
@@ -16,6 +17,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "./dataExport", "./dataTemplate"],
-  "references": [{ "path": "./tsconfig.node.json" }, { "path": "../" }]
+  "include": ["./src/**/*", "./dataExport.tsx", "./dataTemplate.tsx"]
 }
