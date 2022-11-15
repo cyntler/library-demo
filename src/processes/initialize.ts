@@ -29,11 +29,19 @@ const {
   packageTemplateDistPath,
   packageTemplateNodeModulesPath,
 } = getPackagePaths();
-const { projectRootPath, projectDemoPath, projectDemoTemplatePath } =
-  getConsumerProjectPaths();
+const {
+  projectRootPath,
+  projectPackageJsonPath,
+  projectDemoPath,
+  projectDemoTemplatePath,
+} = getConsumerProjectPaths();
 
 export const initialize = () => {
-  if (existsSync(projectRootPath) && existsSync(packageRootPath)) {
+  if (
+    existsSync(projectRootPath) &&
+    existsSync(projectPackageJsonPath) &&
+    existsSync(packageRootPath)
+  ) {
     const isFirstInitialization = !existsSync(projectDemoPath);
     logProgress(`Demo ${!isFirstInitialization ? 're' : ''}initialization...`);
 
