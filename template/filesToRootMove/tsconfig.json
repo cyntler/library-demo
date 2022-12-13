@@ -2,11 +2,11 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "composite": true,
+    "moduleResolution": "Node",
     "paths": {
-      "*": ["./__template/node_modules/@types/*"]
+      "*": ["./__template", "./__template/node_modules/@types/*"]
     },
-    "typeRoots": ["./__template/node_modules/@types"],
-    "moduleResolution": "Node"
+    "typeRoots": ["./__template/node_modules/@types", "./__template/index.d.ts"]
   },
-  "include": ["demoData.tsx"]
+  "include": ["./demoData.tsx"]
 }
