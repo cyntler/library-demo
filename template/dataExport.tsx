@@ -1,3 +1,3 @@
-import data from './dataTemplate';
+import data from './filesToRootMove/demoData';
 
-export default data;
+export default data as () => DemoDataType;

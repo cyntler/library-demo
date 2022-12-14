@@ -1,4 +1,4 @@
-export default (): DemoData => ({
+export default () => ({
   name: '',
   githubLink: '',
   examples: [
