@@ -14,10 +14,17 @@ export const replaceDataExport = () => {
     'utf-8',
   );
 
-  if (projectDemoDataExportFileContent.includes('./dataTemplate')) {
+  if (
+    !projectDemoDataExportFileContent.includes(
+      `import data from '../demoData';`,
+    )
+  ) {
     writeFileSync(
       projectDemoDataExportFilePath,
-      projectDemoDataExportFileContent.replace('./dataTemplate', '../demoData'),
+      projectDemoDataExportFileContent.replace(
+        /import data from (.*);/gm,
+        `import data from '../demoData';`,
+      ),
       'utf-8',
     );
   }
