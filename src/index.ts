@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-import { remove } from './processes/remove';
+import { uninstall } from './processes/uninstall';
 import { initialize } from './processes/initialize';
 
 const argv = process.argv;
-const isRemoving = argv.includes('--remove');
+const isUninstall = argv.includes('--uninstall');
 
-/* When the user ran CLI with --remove option. */
-if (isRemoving) {
-  remove();
+/* When the user ran CLI with --uninstall option. */
+if (isUninstall) {
+  uninstall();
 } else {
   initialize();
 }

@@ -6,7 +6,7 @@ import { removeScriptsFromPackageJson } from '../utils/packageJsonManipulate';
 
 const { projectDemoPath } = getConsumerProjectPaths();
 
-export const remove = () => {
+export const uninstall = () => {
   if (existsSync(projectDemoPath)) {
     logProgress('Demo removing...');
     rmSync(projectDemoPath, { recursive: true, force: true });

@@ -10,10 +10,10 @@ To use this project and initialize the demo page for the library, use the comman
 npx @cyntler/library-demo@latest
 ```
 
-## How to remove?
+## How to uninstall?
 
 Just run the command below.
 
 ```sh
-npx @cyntler/library-demo@latest --remove
+npx @cyntler/library-demo@latest --uninstall
 ```
