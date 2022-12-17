@@ -1,13 +1,28 @@
 #!/usr/bin/env node
-import { remove } from './processes/remove';
+
+import { logError } from './utils/logger';
+import { uninstall } from './processes/uninstall';
 import { initialize } from './processes/initialize';
+import { start } from './processes/start';
+import { build } from './processes/build';
 
 const argv = process.argv;
-const isRemoving = argv.includes('--remove');
 
-/* When the user ran CLI with --remove option. */
-if (isRemoving) {
-  remove();
-} else {
-  initialize();
+const commandStrategy = {
+  init: initialize,
+  uninstall,
+  start,
+  build,
+};
+
+const command = Object.keys(commandStrategy).find((command) =>
+  argv.includes(command),
+);
+
+if (command) {
+  const result = commandStrategy[command]();
+  process.exit(result ? 0 : 1);
 }
+
+logError('There is no such command!');
+process.exit(1);

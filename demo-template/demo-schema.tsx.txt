@@ -1,4 +1,4 @@
-export default (): DemoDataType => ({
+export default (): DemoSchema => ({
   name: '',
   githubLink: '',
   examples: [

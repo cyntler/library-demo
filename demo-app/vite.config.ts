@@ -1,9 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { createHtmlPlugin } from 'vite-plugin-html';
-
-import data from './dataExport';
-const { name } = data();
+import { join } from 'path';
 
 export default defineConfig({
   plugins: [
@@ -12,9 +10,16 @@ export default defineConfig({
       minify: true,
       inject: {
         data: {
-          title: `${name ? `${name} - ` : ''}Live Demo Preview`,
+          title: `Live Demo Preview`,
         },
       },
     }),
   ],
+  assetsInclude: ['**/*.csv'],
+  resolve: {
+    alias: {
+      react: join(__dirname, './node_modules/react'),
+      'react-dom': join(__dirname, './node_modules/react-dom'),
+    },
+  },
 });

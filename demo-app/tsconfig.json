@@ -17,5 +17,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["./src/**/*", "./dataExport.tsx", "./dataTemplate.tsx"]
+  "include": ["./src"]
 }

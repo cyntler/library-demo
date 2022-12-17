@@ -4,7 +4,7 @@ import {
   ArrowUturnRightIcon,
 } from '@heroicons/react/24/solid';
 
-import data from '../dataExport';
+import data from './demoSchema';
 const { name, githubLink, examples } = data();
 
 export const App: FC = () => (

@@ -6,16 +6,16 @@ import { removeScriptsFromPackageJson } from '../utils/packageJsonManipulate';
 
 const { projectDemoPath } = getConsumerProjectPaths();
 
-export const remove = () => {
+export const uninstall = () => {
   if (existsSync(projectDemoPath)) {
-    logProgress('Demo removing...');
+    logProgress('Demo uninstalling...');
+
     rmSync(projectDemoPath, { recursive: true, force: true });
     removeScriptsFromPackageJson(consumerDemoScripts);
 
-    logSuccess('Demo has been removed!');
-    process.exit(0);
+    logSuccess('Demo has been uninstalled!');
+    return true;
   }
 
-  logError('Demo removing failed! Demo has not been initialized before.');
-  process.exit(1);
+  logError('Demo uninstalling failed! Demo has not been initialized before.');
 };

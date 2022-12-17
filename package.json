@@ -1,6 +1,6 @@
 {
   "name": "@cyntler/library-demo",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha.9",
   "description": "Builder of a React.js demo application with Tailwind template for presenting the library to the public.",
   "keywords": [
     "template",
@@ -16,13 +16,16 @@
   },
   "author": "Damian Cyntler",
   "license": "MIT",
-  "bin": "./dist/index.js",
+  "bin": {
+    "library-demo": "./dist/index.js"
+  },
+  "types": "./demo-app/src/library-demo.d.ts",
   "scripts": {
     "start": "nodemon ./src/cli.ts",
-    "build": "rimraf ./dist && tsc",
-    "self-cli": "SELF_RUN=true node ./dist/index.js"
+    "build": "rimraf ./dist && tsc"
   },
   "devDependencies": {
+    "@cyntler/library-demo": "^0.0.0-alpha.2",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.0",
     "rimraf": "^3.0.2",
