@@ -1,0 +1,4 @@
+src/
+.vscode
+demo-app/node_modules
+demo-app/.vscode
