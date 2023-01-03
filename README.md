@@ -4,10 +4,10 @@ Builder of a React.js demo application with Tailwind template for presenting the
 
 ## How to use?
 
-To use this project and initialize the demo page for the library, use the command below.
+To use this project and initialize the demo app for the library, use the command below.
 
 ```sh
-npx @cyntler/library-demo@latest
+npx @cyntler/library-demo@latest init
 ```
 
 ## How to uninstall?
@@ -15,5 +15,5 @@ npx @cyntler/library-demo@latest
 Just run the command below.
 
 ```sh
-npx @cyntler/library-demo@latest --uninstall
+npx @cyntler/library-demo@latest uninstall
 ```
