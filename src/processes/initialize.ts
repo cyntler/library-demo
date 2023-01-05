@@ -24,7 +24,7 @@ export const initialize = () => {
 
     logProgress(`Demo initialization...`);
 
-    execSync('npm i -D @cyntler/library-demo@latest', {
+    execSync('npm i -D @cyntler/library-demo@latest gh-pages', {
       cwd: projectRootPath,
     });
 
