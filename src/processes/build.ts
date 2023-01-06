@@ -10,10 +10,17 @@ import { replaceDemoSchemaImportPath } from '../utils/replaceDemoSchemaImportPat
 const { projectDemoPath } = getConsumerProjectPaths();
 const { packageAppPath } = getPackagePaths();
 
-export const build = () => {
+export const build = (argv: string[]) => {
   if (existsSync(projectDemoPath)) {
     replaceDemoSchemaImportPath();
-    execSync('npm run build', {
+
+    let base = '/';
+    const publicPath = argv.find((val) => val.includes('--public-path'));
+    if (publicPath) {
+      base = publicPath.split('=')[1];
+    }
+
+    execSync(`npm run build -- --base ${base}`, {
       cwd: packageAppPath,
       stdio: 'inherit',
     });

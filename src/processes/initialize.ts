@@ -7,7 +7,6 @@ import { getConsumerProjectPaths } from '../utils/getConsumerProjectPaths';
 import { getPackagePaths } from '../utils/getPackagePaths';
 import { logError, logProgress, logSuccess } from '../utils/logger';
 import { addScriptsToPackageJson } from '../utils/packageJsonManipulate';
-import { replaceDemoSchemaImportPath } from '../utils/replaceDemoSchemaImportPath';
 
 const { packageAppPath, packageTemplatePath } = getPackagePaths();
 const { projectRootPath, projectPackageJsonPath, projectDemoPath } =

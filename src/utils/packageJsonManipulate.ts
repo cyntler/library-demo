@@ -13,7 +13,10 @@ export const addScriptsToPackageJson = (demoScripts: ConsumerDemoScripts) => {
 
   if (packageJsonObj.scripts) {
     Object.keys(demoScripts).forEach((key) => {
-      packageJsonObj.scripts[key] = demoScripts[key];
+      packageJsonObj.scripts[key] = demoScripts[key].replace(
+        '$PUBLIC_PATH',
+        `${packageJsonObj.name ? packageJsonObj.name?.split('/')?.pop() : ''}/`,
+      );
     });
   }
 

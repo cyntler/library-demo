@@ -20,7 +20,7 @@ const command = Object.keys(commandStrategy).find((command) =>
 );
 
 if (command) {
-  const result = commandStrategy[command]();
+  const result = commandStrategy[command](argv);
   process.exit(result ? 0 : 1);
 }
 
